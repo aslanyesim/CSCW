@@ -1,0 +1,13 @@
+{"Plates":[
+	{
+		"id": 0,
+		"title": "Plate 0",
+		"process": 0
+	},
+	{
+		"id": 1,
+		"title": "Plate 1",
+		"process": 20
+	}
+]
+}
