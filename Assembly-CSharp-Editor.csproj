@@ -77,6 +77,9 @@
  <Reference Include="UnityEditor.Networking">
  <HintPath>C:/Program Files (x86)/Unity5_32bit/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
  </Reference>
+ <Reference Include="LitJson">
+ <HintPath>D:/RWTH Aachen/CSCW Lab/Repo/Assets/Plugins/LitJson.dll</HintPath>
+ </Reference>
  <Reference Include="Qualcomm.Vuforia.UnityExtensions.Editor">
  <HintPath>D:/RWTH Aachen/CSCW Lab/Repo/Assets/Vuforia/Editor/Scripts/Qualcomm.Vuforia.UnityExtensions.Editor.dll</HintPath>
  </Reference>
@@ -115,9 +118,6 @@
  </Reference>
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>C:/Program Files (x86)/Unity5_32bit/Editor/Data/PlaybackEngines/macstandalonesupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="LitJson">
- <HintPath>D:/RWTH Aachen/CSCW Lab/Repo/Assets/Plugins/LitJson.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files (x86)/Unity5_32bit/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
