@@ -6,7 +6,7 @@
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
 	<RootNamespace></RootNamespace>
-	<ProjectGuid>{EB6AAAA4-56E4-885C-94F7-79B28A61AF58}</ProjectGuid>
+	<ProjectGuid>{E953FBCB-E46E-C63B-8928-6300AE48FDD6}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<AssemblyName>Assembly-CSharp</AssemblyName>
@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\ReadJSON.cs" />
      <Compile Include="Assets\Scripts\TooltipController.cs" />
+     <Compile Include="Assets\Scripts\TooltipDatabase.cs" />
      <Compile Include="Assets\Vuforia\Scripts\BackgroundPlaneBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\CloudRecoBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\CylinderTargetBehaviour.cs" />
@@ -100,11 +101,11 @@
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files (x86)/Unity5_32bit/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
- <Reference Include="LitJson">
- <HintPath>D:/RWTH Aachen/CSCW Lab/Lego AR/Assets/Resources/LitJson.dll</HintPath>
- </Reference>
  <Reference Include="Qualcomm.Vuforia.UnityExtensions">
- <HintPath>D:/RWTH Aachen/CSCW Lab/Lego AR/Assets/Vuforia/Scripts/Internal/Qualcomm.Vuforia.UnityExtensions.dll</HintPath>
+ <HintPath>D:/RWTH Aachen/CSCW Lab/Repo/Assets/Vuforia/Scripts/Internal/Qualcomm.Vuforia.UnityExtensions.dll</HintPath>
+ </Reference>
+ <Reference Include="LitJson">
+ <HintPath>D:/RWTH Aachen/CSCW Lab/Repo/Assets/Plugins/LitJson.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files (x86)/Unity5_32bit/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
