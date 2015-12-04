@@ -6,10 +6,14 @@ using UnityEngine.UI;
 public class Typer : MonoBehaviour {
     public string msg = "Replace";
     private Text textComp;
-    public float startDelay = 2f;
+    public float startDelay = 1f;
     public float typelDelay = 0.01f;
     public AudioClip putt;
 
+
+    void Start() {
+        StartCoroutine("TypeIn");
+    }
 
 	// Use this for initialization
     void Awake() {
