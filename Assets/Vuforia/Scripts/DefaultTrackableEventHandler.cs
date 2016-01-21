@@ -15,15 +15,14 @@ namespace Vuforia
                                                 ITrackableEventHandler
     {
         #region PRIVATE_MEMBER_VARIABLES
- 
+
         private TrackableBehaviour mTrackableBehaviour;
-    
+
         #endregion // PRIVATE_MEMBER_VARIABLES
-
-
+        public GameObject prefab;
 
         #region UNTIY_MONOBEHAVIOUR_METHODS
-    
+
         void Start()
         {
             mTrackableBehaviour = GetComponent<TrackableBehaviour>();
@@ -71,6 +70,14 @@ namespace Vuforia
             Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
             Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 
+            //enable canvas
+            Canvas canvasObject = (Canvas)FindObjectOfType(typeof(Canvas));
+
+            {
+                canvasObject.enabled = true;
+            }
+
+
             // Enable rendering:
             foreach (Renderer component in rendererComponents)
             {
@@ -92,6 +99,12 @@ namespace Vuforia
             Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
             Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 
+            //disable canvas
+            Canvas canvasObject = (Canvas)FindObjectOfType(typeof(Canvas));
+            {
+                canvasObject.enabled = false;
+
+            }
             // Disable rendering:
             foreach (Renderer component in rendererComponents)
             {
