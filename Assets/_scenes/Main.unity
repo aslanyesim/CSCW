@@ -2296,8 +2296,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BrickNew: {fileID: 105912, guid: ab39f0cb8068a314ab339d3e4a42fdb9, type: 2}
-  PrinterHead: {fileID: 1665227731}
-  Cube: {fileID: 0}
   rb: {fileID: 1665227737}
   temp: {x: 0, y: 0, z: 0}
 --- !u!1 &664755751

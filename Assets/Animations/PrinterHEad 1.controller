@@ -13,7 +13,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -27,32 +27,6 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!114 &11418240
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6275ebe63bc4e8a47a877067d377e235, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PrinterHead: {fileID: 102546, guid: d7af1e79ec5f49c47bc15602c8b8c652, type: 2}
-  maxSpeed: 2
---- !u!114 &11471918
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6275ebe63bc4e8a47a877067d377e235, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PrinterHead: {fileID: 102546, guid: d7af1e79ec5f49c47bc15602c8b8c652, type: 2}
-  maxSpeed: 2
 --- !u!206 &20648782
 BlendTree:
   m_ObjectHideFlags: 1
@@ -77,8 +51,7 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
-  m_StateMachineBehaviours:
-  - {fileID: 11418240}
+  m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -110,8 +83,7 @@ AnimatorStateMachine:
       first: {fileID: 0}
       second:
       - {fileID: 110992160}
-  m_StateMachineBehaviours:
-  - {fileID: 11471918}
+  m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 396, y: 24, z: 0}
   m_EntryPosition: {x: 240, y: -48, z: 0}
   m_ExitPosition: {x: 456, y: 108, z: 0}

@@ -10,19 +10,20 @@ public class PrinterHeadAnimator : MonoBehaviour
     private Vector3 TempPosition;
     public AddBrick brick;
     public bool status = false;
+    public float x = 0.25f;
+    public float z = 0.55f;
 
     // Use this for initialization
     void Start()
     {
         startPosition = transform.position;
-        StartCoroutine(Down());
+       /// StartCoroutine(Down());
+        AnimationPrinterHead();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-      //  TempPosition = transform.TransformPoint(brick.temp);
 
     }
 
@@ -31,7 +32,12 @@ public class PrinterHeadAnimator : MonoBehaviour
         return Mathf.Lerp(startposition, endposition, speed);
     }
 
-    IEnumerator Down()
+    public void AnimationPrinterHead()
+    {
+        StartCoroutine(Down());
+    }
+
+    public IEnumerator Down()
     {
         yield return new WaitForSeconds(3.0f);
         _timeStartedLerping = Time.time;
@@ -49,7 +55,7 @@ public class PrinterHeadAnimator : MonoBehaviour
         }
     }
 
-    IEnumerator Up()
+    public IEnumerator Up()
     {
         _timeStartedLerping = Time.time;
         StopCoroutine(Down());
@@ -68,7 +74,7 @@ public class PrinterHeadAnimator : MonoBehaviour
 
     }
 
-    IEnumerator RightX()
+    public IEnumerator RightX()
     {
         _timeStartedLerping = Time.time;
         StopCoroutine(Up());
@@ -76,7 +82,7 @@ public class PrinterHeadAnimator : MonoBehaviour
         {
             float timeSinceStarted = Time.time - _timeStartedLerping;
             float percentageComplete = timeSinceStarted / timeTakenDuringLerp;
-            transform.position = new Vector3(Lerp(transform.position.x, 0.25f,/* Time.time * speed*/percentageComplete), transform.position.y, transform.position.z);
+            transform.position = new Vector3(Lerp(transform.position.x, x,/* Time.time * speed*/percentageComplete), transform.position.y, transform.position.z);
             if (transform.position.x.Equals(0.25f))
             {
                 StartCoroutine(RightZ());
@@ -86,7 +92,7 @@ public class PrinterHeadAnimator : MonoBehaviour
         }
     }
 
-    IEnumerator RightZ()
+    public IEnumerator RightZ()
     {
         _timeStartedLerping = Time.time;
         StopCoroutine(RightX());
@@ -94,7 +100,7 @@ public class PrinterHeadAnimator : MonoBehaviour
         {
             float timeSinceStarted = Time.time - _timeStartedLerping;
             float percentageComplete = timeSinceStarted / timeTakenDuringLerp;
-            transform.position = new Vector3(transform.position.x, transform.position.y, Lerp(0.25f, 0.55f, /*Time.time * speed*/percentageComplete));
+            transform.position = new Vector3(transform.position.x, transform.position.y, Lerp(0.25f, z, /*Time.time * speed*/percentageComplete));
             if (transform.position.z.Equals(0.55f))
             {
                 StartCoroutine(Down2());
@@ -104,7 +110,7 @@ public class PrinterHeadAnimator : MonoBehaviour
         }
     }
 
-    IEnumerator Down2()
+    public IEnumerator Down2()
     {
         _timeStartedLerping = Time.time;
         StopCoroutine(RightZ());
@@ -122,7 +128,7 @@ public class PrinterHeadAnimator : MonoBehaviour
         }
     }
 
-    IEnumerator Up2()
+    public IEnumerator Up2()
     {
         _timeStartedLerping = Time.time;
         StopCoroutine(Down2());
@@ -141,7 +147,7 @@ public class PrinterHeadAnimator : MonoBehaviour
     }
 
 
-    IEnumerator LeftZ()
+    public IEnumerator LeftZ()
     {
         _timeStartedLerping = Time.time;
         StopCoroutine(Up2());
@@ -159,7 +165,7 @@ public class PrinterHeadAnimator : MonoBehaviour
         }
     }
 
-    IEnumerator LeftX()
+    public IEnumerator LeftX()
     {
         _timeStartedLerping = Time.time;
         StopCoroutine(LeftZ());

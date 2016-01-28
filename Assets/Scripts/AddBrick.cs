@@ -32,6 +32,7 @@ public class AddBrick : MonoBehaviour
 
     private int position = 0;
     public static bool status = true;
+    PrinterHeadAnimator head = new PrinterHeadAnimator();
 
     /**/
     private JsonData data;
@@ -60,7 +61,7 @@ public class AddBrick : MonoBehaviour
     {
         StartCoroutine(loadLetterRepresentations());
         /*ADD BRıCK ANiMATiON MUST BE CALLED AFTER LETTERS ARE LOADED NOT HERE*/
-        //StartCoroutine(addBrickAnimation());
+        StartCoroutine(addBrickAnimation());
         StartCoroutine(loadPlateData());
     }
 
@@ -149,7 +150,7 @@ public class AddBrick : MonoBehaviour
     }
     /**/
     //  IEnumerator Start()
-  /*  IEnumerator addBrickAnimation()
+    IEnumerator addBrickAnimation()
     {
         yield return new WaitForSeconds(1);
         for (int x = 0; x < gridX; x++)
@@ -158,10 +159,11 @@ public class AddBrick : MonoBehaviour
             {
                 if (BrickTable[x, y] == 1)
                 {
+                    head.AnimationPrinterHead();
                     Vector3 pos = new Vector3(x, high, y) * spacing;
                     temp = pos;
                     yield return new WaitForSeconds(5);
-                    GameObject a = (GameObject)Instantiate(prefab, pos, Quaternion.identity);
+                    GameObject a = (GameObject)Instantiate(prefab, pos, Quaternion.identity); 
                     a.transform.parent = transform.parent;
                     if (transform.GetComponent<Renderer>().enabled == false)
                     {
@@ -173,7 +175,7 @@ public class AddBrick : MonoBehaviour
                 }
             }
         }
-    }*/
+    }
 
 
 

@@ -4,11 +4,7 @@ using System.Collections;
 public class CreateBrick : MonoBehaviour
 {
     public GameObject BrickNew;
-    public GameObject PrinterHead;
-    private Joint theJoint;
-    public GameObject Cube;
     public Rigidbody rb;
-
     public Vector3 temp;
 
 
@@ -19,7 +15,6 @@ public class CreateBrick : MonoBehaviour
         StartCoroutine(addBrick2());
 
     }
-
     IEnumerator addBrick2()
     {
 

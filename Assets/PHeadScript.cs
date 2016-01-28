@@ -9,7 +9,6 @@ public class PHeadScript : StateMachineBehaviour {
     // Use this for initialization
     void Start()
     {
-        Debug.Log(" PRINTERRRRRRRRRRRRRRSECONDBEGINGINGGLOOOP");
         //  anim = GetComponent<Animator>();
         startPosition = PrinterHead.GetComponent<Transform>().position;
     }
