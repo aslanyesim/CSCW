@@ -1361,11 +1361,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 451106, guid: d7af1e79ec5f49c47bc15602c8b8c652, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.61199999
+      value: -1.61000001
       objectReference: {fileID: 0}
     - target: {fileID: 451106, guid: d7af1e79ec5f49c47bc15602c8b8c652, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: .99000001
       objectReference: {fileID: 0}
     - target: {fileID: 451106, guid: d7af1e79ec5f49c47bc15602c8b8c652, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1410,11 +1410,15 @@ Prefab:
     - target: {fileID: 11436576, guid: d7af1e79ec5f49c47bc15602c8b8c652, type: 2}
       propertyPath: startMarker
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1665227732}
     - target: {fileID: 11436576, guid: d7af1e79ec5f49c47bc15602c8b8c652, type: 2}
       propertyPath: anim
       value: 
-      objectReference: {fileID: 1665227733}
+      objectReference: {fileID: 0}
+    - target: {fileID: 5401588, guid: d7af1e79ec5f49c47bc15602c8b8c652, type: 2}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d7af1e79ec5f49c47bc15602c8b8c652, type: 2}
   m_IsPrefabParent: 0
@@ -1526,7 +1530,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 672186971}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1a0068cba7835f4b9486accec8917d4, type: 3}
   m_Name: 
@@ -1628,9 +1632,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResourceURL: http://www.mocky.io/v2/5692924f10000092038be2ea
   PrinterURL: http://www.mocky.io/v2/5696324a1300004e36f9e3cd
-  printerAndBrickInfo: {fileID: 0}
+  printerAndBrickInfo: {fileID: 1704965561}
   secondsToCheckServer: .100000001
-  brick: {fileID: 0}
 --- !u!1 &705993557
 GameObject:
   m_ObjectHideFlags: 0
@@ -2014,6 +2017,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 841166418}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &845527272 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 154582, guid: 62abfe37c1860b04c96f6cc41b15a83c, type: 2}
+  m_PrefabInternal: {fileID: 848184480}
 --- !u!1001 &848184480
 Prefab:
   m_ObjectHideFlags: 0
@@ -2105,7 +2112,8 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 212225041}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11452810, guid: 62abfe37c1860b04c96f6cc41b15a83c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 62abfe37c1860b04c96f6cc41b15a83c, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &878201486
@@ -2489,7 +2497,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &1210410994
 GameObject:
   m_ObjectHideFlags: 0
@@ -3094,6 +3102,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 4a92d471d38b849b3b91c5641d1df91c, type: 2}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 845527272}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a92d471d38b849b3b91c5641d1df91c, type: 2}
   m_IsPrefabParent: 0
@@ -4080,65 +4092,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1531453564}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1539989334
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1539989336}
-  - 114: {fileID: 1539989335}
-  - 114: {fileID: 1539989337}
-  m_Layer: 0
-  m_Name: Tooltips
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1539989335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1539989334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1a0068cba7835f4b9486accec8917d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ResourceURL: http://www.mocky.io/v2/5692924f10000092038be2ea
-  amountInfo: {fileID: 0}
-  secondsToCheckServer: .100000001
---- !u!4 &1539989336
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1539989334}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .781004727, y: 1.25045204, z: -.653250694}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
---- !u!114 &1539989337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1539989334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bab3ebf7aa676194683d41a4f4aef5fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ResourceURL: http://www.mocky.io/v2/5692924f10000092038be2ea
-  PrinterURL: http://www.mocky.io/v2/5696324a1300004e36f9e3cd
-  printerAndBrickInfo: {fileID: 0}
-  secondsToCheckServer: .100000001
-  brick: {fileID: 0}
 --- !u!1 &1576524366
 GameObject:
   m_ObjectHideFlags: 0
@@ -4370,6 +4323,10 @@ MeshFilter:
 GameObject:
   m_PrefabParentObject: {fileID: 102546, guid: d7af1e79ec5f49c47bc15602c8b8c652, type: 2}
   m_PrefabInternal: {fileID: 632521672}
+--- !u!4 &1665227732 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 451106, guid: d7af1e79ec5f49c47bc15602c8b8c652, type: 2}
+  m_PrefabInternal: {fileID: 632521672}
 --- !u!95 &1665227733
 Animator:
   serializedVersion: 3
@@ -4387,6 +4344,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1665227734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1665227731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc48fe990cae77c4b8fedc9c21c6efb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1695119478
 GameObject:
   m_ObjectHideFlags: 0
@@ -4464,6 +4432,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1695119478}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1704965561 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11435216, guid: 62abfe37c1860b04c96f6cc41b15a83c,
+    type: 2}
+  m_PrefabInternal: {fileID: 848184480}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1782804823
 GameObject:
   m_ObjectHideFlags: 0

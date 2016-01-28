@@ -22,7 +22,7 @@ public class Printer : MonoBehaviour
     private bool statusChanged = false;
     private bool brickChanged = false;
 
-    public AddBrick brick = new AddBrick();
+   // public AddBrick brick = new AddBrick();
 
     // Use this for initialization
     void Start()

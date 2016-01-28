@@ -162,6 +162,7 @@ public class AddBrick : MonoBehaviour
                     Vector3 pos = new Vector3(x, high, y) * spacing;
                     xpos = x * spacing;
                     zpos = y * spacing;
+                    yield return new WaitForSeconds(5);
                     GameObject a = (GameObject)Instantiate(prefab, pos, Quaternion.identity);
                     a.transform.parent = transform.parent;
                     if (transform.GetComponent<Renderer>().enabled == false)
@@ -170,7 +171,7 @@ public class AddBrick : MonoBehaviour
                         a.transform.GetChild(0).GetChild(1).GetComponent<Renderer>().enabled = false;
                         a.transform.GetChild(0).GetChild(2).GetComponent<Renderer>().enabled = false;
                     }
-                    yield return new WaitForSeconds(3);
+                    yield return new WaitForSeconds(5);
                 }
             }
         }
