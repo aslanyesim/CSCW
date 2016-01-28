@@ -26,8 +26,7 @@ public class AddBrick : MonoBehaviour
     public float gridY = 5f;
     public float spacing = 2f;
     public float high = 0.1f;
-    public float xpos;
-    public float zpos;
+    public Vector3 temp;
     public float startDelay = 100f;
     public float typelDelay = 0.01f;
 
@@ -61,7 +60,7 @@ public class AddBrick : MonoBehaviour
     {
         StartCoroutine(loadLetterRepresentations());
         /*ADD BRıCK ANiMATiON MUST BE CALLED AFTER LETTERS ARE LOADED NOT HERE*/
-        StartCoroutine(addBrickAnimation());
+        //StartCoroutine(addBrickAnimation());
         StartCoroutine(loadPlateData());
     }
 
@@ -150,7 +149,7 @@ public class AddBrick : MonoBehaviour
     }
     /**/
     //  IEnumerator Start()
-    IEnumerator addBrickAnimation()
+  /*  IEnumerator addBrickAnimation()
     {
         yield return new WaitForSeconds(1);
         for (int x = 0; x < gridX; x++)
@@ -160,8 +159,7 @@ public class AddBrick : MonoBehaviour
                 if (BrickTable[x, y] == 1)
                 {
                     Vector3 pos = new Vector3(x, high, y) * spacing;
-                    xpos = x * spacing;
-                    zpos = y * spacing;
+                    temp = pos;
                     yield return new WaitForSeconds(5);
                     GameObject a = (GameObject)Instantiate(prefab, pos, Quaternion.identity);
                     a.transform.parent = transform.parent;
@@ -175,7 +173,9 @@ public class AddBrick : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
+
+
 
    /* public void addBrickAnimation(string letter, int index) {
         while (status) {
