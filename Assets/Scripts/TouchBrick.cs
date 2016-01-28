@@ -15,7 +15,7 @@ public class TouchBrick : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.name == "BrickPrefab")
+        if (col.gameObject.name == "BrickNew (5)")
         {
             theJoint = gameObject.AddComponent<FixedJoint>();
             theJoint.connectedBody = col.rigidbody;

@@ -10,15 +10,17 @@ public class PrinterHeadAnimator : MonoBehaviour
     private Vector3 TempPosition;
     public AddBrick brick;
     public bool status = false;
-    public float x = 0.25f;
-    public float z = 0.55f;
+    public int x = 1;
+    public int z = 1;
+    private float posx = 0.25f;
+    private float posz = 0.55f;
 
     // Use this for initialization
     void Start()
     {
         startPosition = transform.position;
        /// StartCoroutine(Down());
-        AnimationPrinterHead();
+        //AnimationPrinterHead();
     }
 
     // Update is called once per frame
@@ -82,8 +84,8 @@ public class PrinterHeadAnimator : MonoBehaviour
         {
             float timeSinceStarted = Time.time - _timeStartedLerping;
             float percentageComplete = timeSinceStarted / timeTakenDuringLerp;
-            transform.position = new Vector3(Lerp(transform.position.x, x,/* Time.time * speed*/percentageComplete), transform.position.y, transform.position.z);
-            if (transform.position.x.Equals(0.25f))
+            transform.position = new Vector3(Lerp(transform.position.x, (posx + (x*0.25f)),/* Time.time * speed*/percentageComplete), transform.position.y, transform.position.z);
+            if (transform.position.x.Equals((posx + (x * 0.25f))))
             {
                 StartCoroutine(RightZ());
                 break;
@@ -100,8 +102,9 @@ public class PrinterHeadAnimator : MonoBehaviour
         {
             float timeSinceStarted = Time.time - _timeStartedLerping;
             float percentageComplete = timeSinceStarted / timeTakenDuringLerp;
-            transform.position = new Vector3(transform.position.x, transform.position.y, Lerp(0.25f, z, /*Time.time * speed*/percentageComplete));
-            if (transform.position.z.Equals(0.55f))
+            Debug.Log(z+"gvusdlkjginildfksfg");
+            transform.position = new Vector3(transform.position.x, transform.position.y, Lerp(0.25f, (posz + (z * 0.55f)), /*Time.time * speed*/percentageComplete));
+            if (transform.position.z.Equals((posz + (z * 0.55f))))
             {
                 StartCoroutine(Down2());
                 break;

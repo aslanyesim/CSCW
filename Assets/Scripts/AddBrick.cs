@@ -32,7 +32,7 @@ public class AddBrick : MonoBehaviour
 
     private int position = 0;
     public static bool status = true;
-    PrinterHeadAnimator head = new PrinterHeadAnimator();
+    public PrinterHeadAnimator head;
 
     /**/
     private JsonData data;
@@ -159,10 +159,12 @@ public class AddBrick : MonoBehaviour
             {
                 if (BrickTable[x, y] == 1)
                 {
-                    head.AnimationPrinterHead();
+                    head.x = x;
+                    head.z = y;
+                    StartCoroutine(head.Down());// head.AnimationPrinterHead();
                     Vector3 pos = new Vector3(x, high, y) * spacing;
                     temp = pos;
-                    yield return new WaitForSeconds(5);
+                    yield return new WaitForSeconds(7);
                     GameObject a = (GameObject)Instantiate(prefab, pos, Quaternion.identity); 
                     a.transform.parent = transform.parent;
                     if (transform.GetComponent<Renderer>().enabled == false)
@@ -171,7 +173,7 @@ public class AddBrick : MonoBehaviour
                         a.transform.GetChild(0).GetChild(1).GetComponent<Renderer>().enabled = false;
                         a.transform.GetChild(0).GetChild(2).GetComponent<Renderer>().enabled = false;
                     }
-                    yield return new WaitForSeconds(5);
+                    yield return new WaitForSeconds(7);
                 }
             }
         }
