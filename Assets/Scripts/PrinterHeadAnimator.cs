@@ -14,6 +14,8 @@ public class PrinterHeadAnimator : MonoBehaviour
     public int z = 1;
     private float posx = 0.25f;
     private float posz = 0.55f;
+    public GameObject TempBrick;
+    public GameObject CreateBrick;
 
     // Use this for initialization
     void Start()
@@ -84,8 +86,8 @@ public class PrinterHeadAnimator : MonoBehaviour
         {
             float timeSinceStarted = Time.time - _timeStartedLerping;
             float percentageComplete = timeSinceStarted / timeTakenDuringLerp;
-            transform.position = new Vector3(Lerp(transform.position.x, (posx + (x*0.25f)),/* Time.time * speed*/percentageComplete), transform.position.y, transform.position.z);
-            if (transform.position.x.Equals((posx + (x * 0.25f))))
+            transform.position = new Vector3(Lerp(transform.position.x, (posx + (x*0.3f)),/* Time.time * speed*/percentageComplete), transform.position.y, transform.position.z);
+            if (transform.position.x.Equals((posx + (x *0.3f))))
             {
                 StartCoroutine(RightZ());
                 break;
@@ -102,9 +104,8 @@ public class PrinterHeadAnimator : MonoBehaviour
         {
             float timeSinceStarted = Time.time - _timeStartedLerping;
             float percentageComplete = timeSinceStarted / timeTakenDuringLerp;
-            Debug.Log(z+"gvusdlkjginildfksfg");
-            transform.position = new Vector3(transform.position.x, transform.position.y, Lerp(0.25f, (posz + (z * 0.55f)), /*Time.time * speed*/percentageComplete));
-            if (transform.position.z.Equals((posz + (z * 0.55f))))
+            transform.position = new Vector3(transform.position.x, transform.position.y, Lerp(0.25f, (posz + (z * 0.3f)), /*Time.time * speed*/percentageComplete));
+            if (transform.position.z.Equals((posz + (z * 0.3f))))
             {
                 StartCoroutine(Down2());
                 break;
@@ -115,6 +116,8 @@ public class PrinterHeadAnimator : MonoBehaviour
 
     public IEnumerator Down2()
     {
+       // Destroy(TempBrick);
+        TempBrick.SetActive(false);
         _timeStartedLerping = Time.time;
         StopCoroutine(RightZ());
         for (; ; )
@@ -133,6 +136,10 @@ public class PrinterHeadAnimator : MonoBehaviour
 
     public IEnumerator Up2()
     {
+        Destroy(GetComponent<FixedJoint>());
+        TempBrick.transform.position = transform.TransformPoint(new Vector3(-1.15f, -5f, -0.37f));
+        TempBrick.SetActive(true);
+
         _timeStartedLerping = Time.time;
         StopCoroutine(Down2());
         for (; ; )
