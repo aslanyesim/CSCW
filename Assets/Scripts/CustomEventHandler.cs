@@ -68,7 +68,7 @@ namespace Vuforia
 		private void OnTrackingFound()
 		{
 			Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
-		//	Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
+			//Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 			
 			//enable canvas
 			Canvas canvasObject = (Canvas)FindObjectOfType(typeof(Canvas));
@@ -85,11 +85,11 @@ namespace Vuforia
 			}
 			
 			// Enable colliders:
-	/*		foreach (Collider component in colliderComponents)
+			/*foreach (Collider component in colliderComponents)
 			{
 				component.enabled = true;
-			}
-			*/
+			}*/
+			
 			Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
 		}
 		
@@ -97,7 +97,7 @@ namespace Vuforia
 		private void OnTrackingLost()
 		{
 			Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
-	//		Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
+			//Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 			
 			//disable canvas
 			Canvas canvasObject = (Canvas)FindObjectOfType(typeof(Canvas));
@@ -112,11 +112,11 @@ namespace Vuforia
 			}
 			
 			// Disable colliders:
-/*			foreach (Collider component in colliderComponents)
+			/*foreach (Collider component in colliderComponents)
 			{
 				component.enabled = false;
-			}
-			*/
+			}*/
+			
 			Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
 		}
 		
