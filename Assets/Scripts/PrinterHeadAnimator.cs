@@ -21,7 +21,7 @@ public class PrinterHeadAnimator : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
-       /// StartCoroutine(Down());
+        /// StartCoroutine(Down());
         //AnimationPrinterHead();
     }
 
@@ -43,7 +43,7 @@ public class PrinterHeadAnimator : MonoBehaviour
 
     public IEnumerator Down()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1.0f);
         _timeStartedLerping = Time.time;
         for (; ; )
         {
@@ -86,8 +86,8 @@ public class PrinterHeadAnimator : MonoBehaviour
         {
             float timeSinceStarted = Time.time - _timeStartedLerping;
             float percentageComplete = timeSinceStarted / timeTakenDuringLerp;
-            transform.position = new Vector3(Lerp(transform.position.x, (posx + (x*0.3f)),/* Time.time * speed*/percentageComplete), transform.position.y, transform.position.z);
-            if (transform.position.x.Equals((posx + (x *0.3f))))
+            transform.position = new Vector3(Lerp(transform.position.x, (posx + (x * 0.3f)),/* Time.time * speed*/percentageComplete), transform.position.y, transform.position.z);
+            if (transform.position.x.Equals((posx + (x * 0.3f))))
             {
                 StartCoroutine(RightZ());
                 break;
@@ -116,7 +116,7 @@ public class PrinterHeadAnimator : MonoBehaviour
 
     public IEnumerator Down2()
     {
-       // Destroy(TempBrick);
+        // Destroy(TempBrick);
         TempBrick.SetActive(false);
         _timeStartedLerping = Time.time;
         StopCoroutine(RightZ());

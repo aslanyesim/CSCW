@@ -11,6 +11,7 @@ public class Printer : MonoBehaviour
     public string PrinterURL = "http://www.mocky.io/v2/5696324a1300004e36f9e3cd";
     public Text printerAndBrickInfo;
     public float secondsToCheckServer = .1f;
+    public GameObject brickPlate;
 
     private JsonData printerdata;
     private JsonData brickdata;
@@ -21,12 +22,14 @@ public class Printer : MonoBehaviour
 
     private bool statusChanged = false;
     private bool brickChanged = false;
+    private AddBrick brick;
 
-   // public AddBrick brick = new AddBrick();
+    // public AddBrick brick = new AddBrick();
 
     // Use this for initialization
     void Start()
     {
+        brick = brickPlate.GetComponent<AddBrick>();
         StartCoroutine(checkForInfo());
     }
     IEnumerator checkForInfo()
@@ -83,7 +86,8 @@ public class Printer : MonoBehaviour
             int index = (int)printerdata["index"];
 
             //CALL PRINTERHEAD animation
-           // brick.addBrickAnimation(letter,index);
+			if(brick.isloaded)
+            	brick.doAnimation(letter, index);
             //CALL PRiNTiNG ANiMATiON
         }
         else if (status == "error")
@@ -94,7 +98,7 @@ public class Printer : MonoBehaviour
             //erroranim1(int index);
         }
         else if (status == "waiting")
-        { 
+        {
             //reset index and letter
         }
     }
@@ -121,8 +125,11 @@ public class Printer : MonoBehaviour
     }
     private void writeData()
     {
-        if (brickChanged || statusChanged)
-            printerAndBrickInfo.text = statusSentence + brickSentence;
+        string letter = printerdata["letter"].ToString();
+        int index = (int)printerdata["index"];
+
+        //if (brickChanged || statusChanged)
+        printerAndBrickInfo.text = "index: " + index + "\n" + statusSentence + brickSentence;
         printerdata = null;
         brickdata = null;
     }
