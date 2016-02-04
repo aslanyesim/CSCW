@@ -25,12 +25,12 @@ public class AddBrick : MonoBehaviour
     public float gridX = 5f;
     public float gridY = 5f;
     public float spacing = 2f;
-    public float high = 0.1f;
+    public float high = 0.03f;
     public Vector3 temp;
     public float startDelay = 100f;
     public float typelDelay = 0.01f;
 
-    private int position = 0;
+    public int position = 0;
     public static bool status = true;
     public PrinterHeadAnimator head;
 
@@ -93,7 +93,6 @@ public class AddBrick : MonoBehaviour
             Debug.Log("ERROR: " + www.error);
         }
         isloaded = true;
-		Debug.Log("afbedksjhlfnewjlrfd");
     }
     /**/
     int[,] fillTheArray(JsonData array)
@@ -206,9 +205,11 @@ public class AddBrick : MonoBehaviour
                     StartCoroutine(head.Down());// head.AnimationPrinterHead();
                     Vector3 pos = new Vector3(x, high, y) * spacing;
                     temp = pos;
-                    yield return new WaitForSeconds(5);
-                    GameObject a = (GameObject)Instantiate(prefab, pos, Quaternion.identity);
+                    yield return new WaitForSeconds(5.4f);
+					GameObject a = (GameObject)Instantiate(prefab, pos, Quaternion.identity);
+					a.tag = "Tobedeletedbrick";
                     a.transform.parent = transform.parent;
+
                     if (transform.GetComponent<Renderer>().enabled == false)
                     {
                         a.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = false;

@@ -79,6 +79,7 @@ public class PrePlate : MonoBehaviour {
                     temp = transform.TransformPoint(pos);
                     GameObject a = (GameObject)Instantiate(prefab, temp, Quaternion.identity);
 					a.transform.up = transform.up;
+					a.tag = "Tobedeletedbrick";
                     a.transform.parent = transform;
                 }
             }

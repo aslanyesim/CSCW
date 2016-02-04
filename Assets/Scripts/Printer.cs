@@ -12,6 +12,8 @@ public class Printer : MonoBehaviour
     public Text printerAndBrickInfo;
     public float secondsToCheckServer = .1f;
     public GameObject brickPlate;
+	public GameObject ErrorObj;
+	public GameObject ErrorObj2;
 
     private JsonData printerdata;
     private JsonData brickdata;
@@ -84,6 +86,7 @@ public class Printer : MonoBehaviour
         {
             string letter = printerdata["letter"].ToString();
             int index = (int)printerdata["index"];
+			ErrorObj.SetActive(false);
 
             //CALL PRINTERHEAD animation
 			if(brick.isloaded)
@@ -92,7 +95,17 @@ public class Printer : MonoBehaviour
         }
         else if (status == "error")
         {
-            AddBrick.status = false;
+			int error = (int)printerdata["error"];
+			if(error==910){
+				ErrorObj.SetActive(true);
+			}
+			else if(error==912){
+				
+			}
+			else if(error==913){
+				
+			}
+
 
             //CALL ERROR ANiMATiON
             //erroranim1(int index);
@@ -100,6 +113,13 @@ public class Printer : MonoBehaviour
         else if (status == "waiting")
         {
             //reset index and letter
+			brick.position = 0;
+			AddBrick.status = false;
+			GameObject[] BricksToBeDeleted = GameObject.FindGameObjectsWithTag("Tobedeletedbrick");
+			
+			foreach (GameObject tempp in BricksToBeDeleted) {
+				Destroy(tempp);
+			}
         }
     }
     private void parseBrickData()

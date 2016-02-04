@@ -5,6 +5,7 @@ Confidential and Proprietary - Qualcomm Connected Experiences, Inc.
 ==============================================================================*/
 
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Vuforia
 {
@@ -19,7 +20,7 @@ namespace Vuforia
 		private TrackableBehaviour mTrackableBehaviour;
 		
 		#endregion // PRIVATE_MEMBER_VARIABLES
-		public GameObject prefab;
+		//public GameObject prefab;
 		
 		#region UNTIY_MONOBEHAVIOUR_METHODS
 		
@@ -71,12 +72,10 @@ namespace Vuforia
 			//Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 			
 			//enable canvas
-			Canvas canvasObject = (Canvas)FindObjectOfType(typeof(Canvas));
-			
-			{
-				canvasObject.enabled = true;
+			Canvas[] canvasObjects = FindObjectsOfType(typeof(Canvas)) as Canvas[];
+			foreach(Canvas c in canvasObjects){
+				c.enabled = true;
 			}
-			
 			
 			// Enable rendering:
 			foreach (Renderer component in rendererComponents)
@@ -100,10 +99,9 @@ namespace Vuforia
 			//Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 			
 			//disable canvas
-			Canvas canvasObject = (Canvas)FindObjectOfType(typeof(Canvas));
-			{
-				canvasObject.enabled = false;
-				
+			Canvas[] canvasObjects = FindObjectsOfType(typeof(Canvas)) as Canvas[];
+			foreach(Canvas c in canvasObjects){
+				c.enabled = false;
 			}
 			// Disable rendering:
 			foreach (Renderer component in rendererComponents)

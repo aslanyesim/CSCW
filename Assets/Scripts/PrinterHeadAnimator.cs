@@ -137,7 +137,7 @@ public class PrinterHeadAnimator : MonoBehaviour
     public IEnumerator Up2()
     {
         Destroy(GetComponent<FixedJoint>());
-        TempBrick.transform.localPosition = new Vector3(-1.15f, -5f, -0.37f);
+        TempBrick.transform.localPosition = new Vector3(0.34f, 1.1f, -0.25f);
         TempBrick.SetActive(true);
 
         _timeStartedLerping = Time.time;
