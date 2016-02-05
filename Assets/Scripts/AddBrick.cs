@@ -213,8 +213,6 @@ public class AddBrick : MonoBehaviour
                     if (transform.GetComponent<Renderer>().enabled == false)
                     {
                         a.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = false;
-                        a.transform.GetChild(0).GetChild(1).GetComponent<Renderer>().enabled = false;
-                        a.transform.GetChild(0).GetChild(2).GetComponent<Renderer>().enabled = false;
                     }
                     yield return new WaitForSeconds(3);
                 }
