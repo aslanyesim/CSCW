@@ -71,10 +71,10 @@ namespace Vuforia
 			Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
 			//Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 			
-			//enable canvas
-			Canvas[] canvasObjects = FindObjectsOfType(typeof(Canvas)) as Canvas[];
-			foreach(Canvas c in canvasObjects){
-				c.enabled = true;
+			Canvas[] canvasComponents = GetComponentsInChildren<Canvas>(true);
+			
+			foreach(Canvas canvas in canvasComponents){
+				canvas.enabled = true;
 			}
 			
 			// Enable rendering:
@@ -98,10 +98,10 @@ namespace Vuforia
 			Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
 			//Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 			
-			//disable canvas
-			Canvas[] canvasObjects = FindObjectsOfType(typeof(Canvas)) as Canvas[];
-			foreach(Canvas c in canvasObjects){
-				c.enabled = false;
+			Canvas[] canvasComponents = GetComponentsInChildren<Canvas>(true);
+			
+			foreach(Canvas canvas in canvasComponents){
+				canvas.enabled = false;
 			}
 			// Disable rendering:
 			foreach (Renderer component in rendererComponents)

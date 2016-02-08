@@ -14,6 +14,7 @@ public class Printer : MonoBehaviour
     public GameObject brickPlate;
 	public GameObject ErrorObj;
 	public GameObject ErrorObj2;
+	public GameObject ErrorObj3;
 
     private JsonData printerdata;
     private JsonData brickdata;
@@ -25,6 +26,7 @@ public class Printer : MonoBehaviour
     private bool statusChanged = false;
     private bool brickChanged = false;
     private AddBrick brick;
+	public int tempindex = 0;
 
     // public AddBrick brick = new AddBrick();
 
@@ -87,9 +89,10 @@ public class Printer : MonoBehaviour
             string letter = printerdata["letter"].ToString();
             int index = (int)printerdata["index"];
 			ErrorObj.SetActive(false);
-
+			ErrorObj2.SetActive(false);
+			ErrorObj3.SetActive(false);
             //CALL PRINTERHEAD animation
-			if(brick.isloaded)
+			if(brick.isloaded && brick.position == index) 
             	brick.doAnimation(letter, index);
             //CALL PRiNTiNG ANiMATiON
         }
@@ -100,10 +103,10 @@ public class Printer : MonoBehaviour
 				ErrorObj.SetActive(true);
 			}
 			else if(error==912){
-				
+				ErrorObj2.SetActive(true);
 			}
 			else if(error==913){
-				
+				ErrorObj3.SetActive(true);
 			}
 
 

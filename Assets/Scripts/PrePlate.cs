@@ -51,9 +51,7 @@ public class PrePlate : MonoBehaviour {
 				if (letter != temp || !isPrinted)
 				{
 					letter = temp;
-					Debug.Log("128416548645");
 					if(addBrick.isloaded){
-						Debug.Log("LODEEEEEDDDDDEDE");
 						AddPreBrick(addBrick.arrayOfLetter(letter));
 					}
 				}

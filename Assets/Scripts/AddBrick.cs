@@ -186,15 +186,62 @@ public class AddBrick : MonoBehaviour
       }
 
   */
-
-    public IEnumerator addBrickAnimation(string letter)
-    {
+	public IEnumerator addBrickAnimation(string letter)
+	{
 		BrickTable = letterLookUp[letter];
-        yield return new WaitForSeconds(1);
-        status = true;
-		while (status/* && (index > 0) && (index < 26)*/ && (position < index))
-        {
-            for (int i = position; i <= index; i++, position++)
+		yield return new WaitForSeconds(1);
+		status = true;
+		while (status)
+		{
+			for (int i = position; i < index; i++,position++)
+			{
+				int x = convertIndexTo2Dx(i);
+				int y = convertIndexTo2Dy(i);
+				if (BrickTable[x, y] == 1)
+				{
+					Vector3 pos = new Vector3(x, high, y) * spacing;
+					temp = pos;
+					GameObject a = (GameObject)Instantiate(prefab, pos, Quaternion.identity);
+					a.tag = "Tobedeletedbrick";
+					a.transform.parent = transform.parent;
+					if (transform.GetComponent<Renderer>().enabled == false)
+					{
+						a.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = false;
+					}
+				}
+			}
+
+			int xx = convertIndexTo2Dx(index);
+			int yy = convertIndexTo2Dy(index);
+			head.x = xx;
+			head.z = yy;
+			StartCoroutine(head.Down());// head.AnimationPrinterHead();
+			Vector3 poss = new Vector3(xx, high, yy) * spacing;
+			temp = poss;
+			yield return new WaitForSeconds(5.4f);
+			GameObject aa = (GameObject)Instantiate(prefab, poss, Quaternion.identity);
+			aa.tag = "Tobedeletedbrick";
+			aa.transform.parent = transform.parent;	
+			position++;
+			if (transform.GetComponent<Renderer>().enabled == false)
+			{
+				aa.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = false;
+			}
+			yield return new WaitForSeconds(3);
+			status = false;
+			}
+		isAnimation = false;
+	}
+	/*
+	
+	public IEnumerator addBrickAnimation(string letter)
+	{
+		BrickTable = letterLookUp[letter];
+		yield return new WaitForSeconds(1);
+		status = true;
+		while (status/* && (index > 0) && (index < 26) && (position < index))
+		{
+			for (int i = position; i <= index; i++, position++)
             {
                 int x = convertIndexTo2Dx(i);
                 int y = convertIndexTo2Dy(i);
@@ -219,7 +266,7 @@ public class AddBrick : MonoBehaviour
             }
         }
         isAnimation = false;
-    }
+    }*/
 
     int convertIndexTo2Dx(int index)
     {
