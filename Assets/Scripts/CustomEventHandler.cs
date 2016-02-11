@@ -21,7 +21,8 @@ namespace Vuforia
 		
 		#endregion // PRIVATE_MEMBER_VARIABLES
 		//public GameObject prefab;
-		
+
+		public bool isTracked=false;
 		#region UNTIY_MONOBEHAVIOUR_METHODS
 		
 		void Start()
@@ -52,10 +53,12 @@ namespace Vuforia
 			    newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
 			{
 				OnTrackingFound();
+				isTracked = true;
 			}
 			else
 			{
 				OnTrackingLost();
+				isTracked = false;
 			}
 		}
 		

@@ -61,11 +61,15 @@ public class AddBrick : MonoBehaviour
     /**/
     void Start()
     {
-        StartCoroutine(loadLetterRepresentations());
+       
         /*ADD BRıCK ANiMATiON MUST BE CALLED AFTER LETTERS ARE LOADED NOT HERE*/
         // StartCoroutine(addBrickAnimation());
       //  StartCoroutine(loadPlateData());
     }
+	public void getIP(string address){
+		letterRepresentationsURL = "http://" + address +"/letters";
+		StartCoroutine(loadLetterRepresentations());
+	}
 
     /**/
     IEnumerator loadLetterRepresentations()
@@ -80,6 +84,12 @@ public class AddBrick : MonoBehaviour
             /*for(int i = 0; i < array.Count; i++){
                 Debug.Log(array[i].ToString());
             }*/
+			int[,] nullTable = new int[5, 5]{{0,0,0,0,0},
+				{0,0,0,0,0}, 
+				{0,0,0,0,0},
+				{0,0,0,0,0},
+				{0,0,0,0,0}, };
+			letterLookUp.Add("", nullTable);
             for (int i = 0; i < letters.Count; i++)
             {
                 JsonData array = letters[i]["array"];
@@ -195,8 +205,11 @@ public class AddBrick : MonoBehaviour
 		{
 			for (int i = position; i < index; i++,position++)
 			{
-				int x = convertIndexTo2Dx(i);
-				int y = convertIndexTo2Dy(i);
+			//	int x = convertIndexTo2Dx(i);
+			//	int y = convertIndexTo2Dy(i);
+				int y = convertIndexTo2Dx(i);
+				int x = convertIndexTo2Dy(i);
+
 				if (BrickTable[x, y] == 1)
 				{
 					Vector3 pos = new Vector3(x, high, y) * spacing;
@@ -204,6 +217,8 @@ public class AddBrick : MonoBehaviour
 					GameObject a = (GameObject)Instantiate(prefab, pos, Quaternion.identity);
 					a.tag = "Tobedeletedbrick";
 					a.transform.parent = transform.parent;
+					a.transform.up = transform.up;
+					a.transform.right = transform.right;
 					if (transform.GetComponent<Renderer>().enabled == false)
 					{
 						a.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = false;
@@ -211,8 +226,11 @@ public class AddBrick : MonoBehaviour
 				}
 			}
 
-			int xx = convertIndexTo2Dx(index);
-			int yy = convertIndexTo2Dy(index);
+	/***/	//	position=index;
+		//	int xx = convertIndexTo2Dx(index);
+		//	int yy = convertIndexTo2Dy(index);
+			int yy = convertIndexTo2Dx(index);
+			int xx = convertIndexTo2Dy(index);
 			head.x = xx;
 			head.z = yy;
 			StartCoroutine(head.Down());// head.AnimationPrinterHead();
@@ -225,7 +243,11 @@ public class AddBrick : MonoBehaviour
 			position++;
 			if (transform.GetComponent<Renderer>().enabled == false)
 			{
-				aa.transform.GetChild(0).GetChild(0).GetComponent<Renderer>().enabled = false;
+				aa.transform.GetComponent<Renderer>().enabled = false;
+				Renderer[] renderers = aa.transform.GetComponentsInChildren<Renderer>();
+				foreach(Renderer r in renderers){
+					r.enabled = false;
+				}
 			}
 			yield return new WaitForSeconds(3);
 			status = false;

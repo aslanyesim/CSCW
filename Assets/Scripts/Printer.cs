@@ -15,7 +15,7 @@ public class Printer : MonoBehaviour
 	public GameObject ErrorObj;
 	public GameObject ErrorObj2;
 	public GameObject ErrorObj3;
-
+	public Text serverStatus;
     private JsonData printerdata;
     private JsonData brickdata;
     private string status = "";
@@ -34,22 +34,34 @@ public class Printer : MonoBehaviour
     void Start()
     {
         brick = brickPlate.GetComponent<AddBrick>();
-        StartCoroutine(checkForInfo());
+       
     }
+	public void getIP(string address){
+	
+		ResourceURL = "http://" + address +"/resources"; 
+		PrinterURL =  "http://" + address +"/arstatus";
+		StartCoroutine(checkForInfo());
+	}
+
     IEnumerator checkForInfo()
     {
+		bool isLoaded = false;
         for (; ; )
         {
             WWW www = new WWW(PrinterURL);
             yield return www;
             if (www.error == null)
             {
+				serverStatus.text="Connected to server successfully";
                 printerdata = JsonMapper.ToObject(www.text);
                 parsePrinterData();
+				isLoaded = true;
             }
             else
             {
+				serverStatus.text ="ERROR: " + www.error ;
                 Debug.Log("ERROR: " + www.error);
+				isLoaded = false;
             }
 
             www = new WWW(ResourceURL);
@@ -63,8 +75,10 @@ public class Printer : MonoBehaviour
             else
             {
                 Debug.Log("ERROR: " + www.error);
+				isLoaded = false;
             }
-            writeData();
+			if(isLoaded)
+            	writeData();
             yield return new WaitForSeconds(secondsToCheckServer);
         }
     }
@@ -92,7 +106,8 @@ public class Printer : MonoBehaviour
 			ErrorObj2.SetActive(false);
 			ErrorObj3.SetActive(false);
             //CALL PRINTERHEAD animation
-			if(brick.isloaded && brick.position == index) 
+			int previous = brick.position-1;
+			if(brick.isloaded && (previous != index)/*&& (brick.position == index || brick.position == 0)*/) 
             	brick.doAnimation(letter, index);
             //CALL PRiNTiNG ANiMATiON
         }
@@ -100,6 +115,9 @@ public class Printer : MonoBehaviour
         {
 			int error = (int)printerdata["error"];
 			if(error==910){
+				ErrorObj.SetActive(true);
+			}
+			else if(error==911){
 				ErrorObj.SetActive(true);
 			}
 			else if(error==912){

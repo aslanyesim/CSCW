@@ -16,9 +16,13 @@ public class PlateWarehouse : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(checkForInfo());
-    }
 
+    }
+	public void getIP(string address){
+		ResourceURL = "http://" + address +"/resources"; 
+		Debug.Log("Resource: " + ResourceURL);
+		StartCoroutine(checkForInfo());
+	}
 
     IEnumerator checkForInfo()
     {
@@ -28,11 +32,13 @@ public class PlateWarehouse : MonoBehaviour
             yield return www;
             if (www.error == null)
             {
+
                 data = JsonMapper.ToObject(www.text);
                 parseData();
             }
             else
             {
+
                 Debug.Log("ERROR: " + www.error);
             }
             yield return new WaitForSeconds(secondsToCheckServer);

@@ -7,6 +7,7 @@ TagManager:
   - brick
   - New Tag
   - Tobedeletedbrick
+  - TobedeletedPrebrick
   layers:
   - Default
   - TransparentFX
